@@ -1,5 +1,5 @@
 variable "dockerfile_dir" {
-  type = string
+  type        = string
   description = "The directory that contains the Dockerfile"
 }
 
@@ -14,8 +14,18 @@ variable "docker_image_tag" {
   default     = "latest"
 }
 
-variable "pip_auth_link" {
+variable "domain_name" {
   type        = string
-  description = "This is the pip auth link for pip3 config set global.index-url $PIP_AUTH_LINK which will be used for the image that you created"
-  default     = "latest"
+  description = "This is the pip auth domain which will be used for the image that you created"
+  default     = "connect-taiyo-ai"
+}
+variable "owner_account" {
+  type        = string
+  description = "This is the pip auth account which will be used for the image that you created"
+  default     = "965994533236"
+}
+variable "region" {
+  type        = string
+  description = "This is the pip auth region which will be used for the image that you created"
+  default     = "eu-west-3"
 }
