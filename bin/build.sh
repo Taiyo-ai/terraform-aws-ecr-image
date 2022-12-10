@@ -8,6 +8,7 @@ set -e
 # This is the order of arguments
 build_folder=$1
 aws_ecr_repository_url_with_tag=$2
+pip_auth_link=$3
 
 # Check that aws is installed
 which aws > /dev/null || { echo 'ERROR: aws-cli is not installed' ; exit 1; }
@@ -22,7 +23,7 @@ which docker > /dev/null && docker ps > /dev/null || { echo 'ERROR: docker is no
 echo "Building $aws_ecr_repository_url_with_tag from $build_folder/Dockerfile"
 
 # Build image
-docker build -t $aws_ecr_repository_url_with_tag $build_folder
+docker build -t $aws_ecr_repository_url_with_tag $build_folder --build-arg PIP_AUTH_LINK=$pip_auth_link
 
 # Push image
 docker push $aws_ecr_repository_url_with_tag
