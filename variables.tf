@@ -14,6 +14,10 @@ variable "docker_image_tag" {
   default     = "latest"
 }
 
+variable "src_copy_dir" {
+  type        = string
+  description = "This is the source package directory which will be used for the image that you created"
+}
 variable "domain_name" {
   type        = string
   description = "This is the pip auth domain which will be used for the image that you created"

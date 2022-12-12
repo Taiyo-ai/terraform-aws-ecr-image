@@ -8,9 +8,10 @@ set -e
 # This is the order of arguments
 build_folder=$1
 aws_ecr_repository_url_with_tag=$2
-domain_name=$3
-owner_account=$4
-region=$5
+src_copy_dir=$3
+domain_name=$4
+owner_account=$5
+region=$6
 
 # Check that aws is installed
 which aws > /dev/null || { echo 'ERROR: aws-cli is not installed' ; exit 1; }
@@ -29,6 +30,7 @@ echo "Building $aws_ecr_repository_url_with_tag from $build_folder/Dockerfile"
 
 # Build image
 docker build -t $aws_ecr_repository_url_with_tag $build_folder \
+ --build-arg SRC_COPY_DIR=$src_copy_dir \
  --build-arg CODEARTIFACT_AUTH_TOKEN=$codeartifact_auth_token \
  --build-arg DOMAIN_NAME=$domain_name \
  --build-arg OWNER_ACCOUNT=$owner_account \

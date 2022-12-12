@@ -18,6 +18,6 @@ resource "null_resource" "ecr_image" {
 
   # Runs the build.sh script which builds the dockerfile and pushes to ecr
   provisioner "local-exec" {
-    command = "bash ${path.module}/bin/build.sh ${var.dockerfile_dir} ${var.ecr_repository_url}:${var.docker_image_tag} ${var.domain_name} ${var.owner_account} ${var.region}"
+    command = "bash ${path.module}/bin/build.sh ${var.dockerfile_dir} ${var.ecr_repository_url}:${var.docker_image_tag} ${var.src_copy_dir} ${var.domain_name} ${var.owner_account} ${var.region}"
   }
 }
