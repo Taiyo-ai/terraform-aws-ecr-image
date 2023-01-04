@@ -35,7 +35,7 @@ docker build -t $aws_ecr_repository_url_with_tag \
  --build-arg CODEARTIFACT_AUTH_TOKEN=$codeartifact_auth_token \
  --build-arg DOMAIN_NAME=$domain_name \
  --build-arg OWNER_ACCOUNT=$owner_account \
- --build-arg REGION=$region
+ --build-arg REGION=$region .
 
 # Push image
 docker push $aws_ecr_repository_url_with_tag
