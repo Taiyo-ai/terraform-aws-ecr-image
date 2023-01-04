@@ -29,7 +29,8 @@ export codeartifact_auth_token=$(aws codeartifact get-authorization-token --doma
 echo "Building $aws_ecr_repository_url_with_tag from $build_folder/Dockerfile"
 
 # Build image
-docker build -t $aws_ecr_repository_url_with_tag $build_folder \
+docker build -t $aws_ecr_repository_url_with_tag \
+ --file $build_folder \
  --build-arg SRC_COPY_DIR=$src_copy_dir \
  --build-arg CODEARTIFACT_AUTH_TOKEN=$codeartifact_auth_token \
  --build-arg DOMAIN_NAME=$domain_name \
