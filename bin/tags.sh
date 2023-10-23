@@ -1,9 +1,10 @@
 #!/bin/bash
 
-while getopts r:s:f:t: flag
+while getopts a:r:s:f:t: flag
 do
     case "${flag}" in
-        r) aws_region=${OPTARG};;
+        a) aws_region=${OPTARG};;
+        r) repo=${OPTARG};;
         s) service=${OPTARG};;
         f) from=${OPTARG};;
         t) to=${OPTARG};;
