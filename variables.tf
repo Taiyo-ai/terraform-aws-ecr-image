@@ -1,11 +1,22 @@
-variable "dockerfile_dir" {
+variable "dockerfile_folder" {
   type        = string
-  description = "The directory that contains the Dockerfile"
+  description = "This is the folder which contains the Dockerfile"
+}
+
+variable "aws_region" {
+  type        = string
+  description = "AWS region for ECR"
+  default     = ""
 }
 
 variable "ecr_repository_url" {
   type        = string
-  description = "Full url for the ECR repository"
+  description = "Base url for the ecr repository"
+}
+
+variable "docker_service_name" {
+  type        = string
+  description = "Name of service"
 }
 
 variable "docker_image_tag" {
@@ -14,22 +25,7 @@ variable "docker_image_tag" {
   default     = "latest"
 }
 
-variable "src_copy_dir" {
+variable "docker_image_other_tags" {
   type        = string
-  description = "This is the source package directory which will be used for the image that you created"
-}
-variable "domain_name" {
-  type        = string
-  description = "This is the pip auth domain which will be used for the image that you created"
-  default     = "connect-taiyo-ai"
-}
-variable "owner_account" {
-  type        = string
-  description = "This is the pip auth account which will be used for the image that you created"
-  default     = "965994533236"
-}
-variable "region" {
-  type        = string
-  description = "This is the pip auth region which will be used for the image that you created"
-  default     = "eu-west-3"
+  description = "comma separated list of tags"
 }
