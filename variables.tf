@@ -1,4 +1,4 @@
-variable "dockerfile_folder" {
+variable "dockerfile_dir" {
   type        = string
   description = "This is the folder which contains the Dockerfile"
 }
